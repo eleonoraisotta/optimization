@@ -24,7 +24,7 @@ classdef LinesearchArmijo < handle
       self.alpha_max = 1e10 ;
     end
 
-    function self = setC1( self, c1 )
+    function self = setC1( self, c1 ) % è necessario definirla con il self o va bene anche function setC1?
       if (c1 >= 0.5) || (c1 < sqrt(eps) )
         error('Linesearch1D, constant c1 = %g must be <= 0.5 and >= %10f\n',c1,sqrt(eps));
       end
@@ -33,7 +33,7 @@ classdef LinesearchArmijo < handle
     
     % aggiungere altri parametri da cambiare
 
-    function self = setFunction( self, fun1D )
+    function self = setFunction( self, fun1D ) % è necessario definirla con il self o va bene anche function setFunction?
       self.fun1D = fun1D ;
     end
 
@@ -96,7 +96,7 @@ classdef LinesearchArmijo < handle
       end
     end
     
-    function plot( self, alpha_max )
+    function plot( self, alpha_max ) %si potrebbe usare anche self.alpha_max direttamente?
       alpha = 0:alpha_max/1000:alpha_max ;
       y = [] ;
       for a=alpha ; y = [y self.fun1D.eval(a)]; end
